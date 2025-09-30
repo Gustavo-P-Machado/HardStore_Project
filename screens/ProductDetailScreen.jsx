@@ -5,7 +5,8 @@ import { COLORS } from '../constants/colors';
 import LoadingIndicator from '../components/LoadingIndicator';
 import ProductImage from '../components/ProductImage';
 import ProductInfo from '../components/ProductInfo';
-import StickyFooterButton from '../components/stickyFooterButton';
+// import StickyFooterButton from '../components/stickyFooterButton';
+import StickyFooterButton from '../components/StickyFooterButton'
 
 const ProductDetailScreen = () => {
   const [product, setProduct] = useState(null);
