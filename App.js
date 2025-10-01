@@ -8,6 +8,7 @@ import { COLORS } from './constants/colors';
 
 import LoginScreen from './screens/LoginScreen';
 import ProductDetailScreen from './screens/ProductDetailScreen';
+import Developers from './screens/Developers'
 
 const Stack = createStackNavigator();
 
