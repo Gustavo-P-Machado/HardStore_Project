@@ -8,7 +8,8 @@ import { COLORS } from './constants/colors';
 
 import LoginScreen from './screens/LoginScreen';
 import ProductDetailScreen from './screens/ProductDetailScreen';
-import Developers from './screens/Developers'
+import HomeScreen from './screens/HomeScreen';
+import Developers from './screens/Developers';
 
 const Stack = createStackNavigator();
 
@@ -19,11 +20,27 @@ export default function App() {
         <Stack.Navigator
           initialRouteName="Login"
           screenOptions={{
-            headerShown: false,
+            headerStyle: { backgroundColor: COLORS.background },
+            headerTitleAlign: 'center',
+            headerTintColor: '#fff',
           }}
         >
-          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={({ navigation }) => ({
+              headerLeft: () => (
+                <LogoutButton onPress={() => navigation.replace('Login')} />
+              ),
+              headerTitle: 'Produtos',
+              headerRight: () => (
+                <InfoButton onPress={() => navigation.navigate('Developers')} />
+              ),
+            })}
+          />
           <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
+          <Stack.Screen name="Developers" component={Developers} options={{ headerTitle: 'Informações do Grupo' }} />
         </Stack.Navigator>
       </NavigationContainer>
       <StatusBar style="light" backgroundColor={COLORS.background} />
