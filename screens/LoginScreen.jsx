@@ -49,7 +49,7 @@ const LoginScreen = () => {
 
       if (userFound) {
         
-        navigation.navigate('ProductDetail');
+        navigation.navigate('Home');
         
         
         setCredentials({ username: '', password: '' });
