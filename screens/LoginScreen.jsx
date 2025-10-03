@@ -22,11 +22,11 @@ const LoginScreen = () => {
 
   const handleChange = (field, value) => {
     setCredentials((prev) => ({ ...prev, [field]: value }));
-    setError(''); // Limpa o erro quando o usuário digitar
+    setError('');
   };
 
   const handleLogin = async () => {
-    // Validação básica
+    
     if (!credentials.username.trim() || !credentials.password.trim()) {
       setError('Por favor, preencha todos os campos');
       return;
@@ -36,11 +36,11 @@ const LoginScreen = () => {
     setError('');
 
     try {
-      // Busca todos os usuários da API
+      
       const usersResponse = await axios.get('https://fakestoreapi.com/users');
       const users = usersResponse.data;
 
-      // Verifica se existe um usuário com username E password corretos
+      
       const userFound = users.find(
         (user) => 
           user.username === credentials.username && 
@@ -48,10 +48,10 @@ const LoginScreen = () => {
       );
 
       if (userFound) {
-        // Login bem-sucedido - navega para a próxima tela
+        
         navigation.navigate('ProductDetail');
         
-        // Limpa os campos após login bem-sucedido
+        
         setCredentials({ username: '', password: '' });
       } else {
         setError(ERROR_MESSAGE);
