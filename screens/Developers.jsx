@@ -8,25 +8,25 @@ const data = [
     id: '1',
     title: 'João Eduardo',
     subtitle: 'RA: 1136483',
-    image: 'Link da imagem',
+    image: require('../assets/Eduardo.png'),
   },
   {
     id: '2',
     title: 'Bernardo Rodrigues',
     subtitle: 'RA: 1136134',
-    image: 'link da imagem',
+    image: require('../assets/Bernardo.png'),
   },
   {
     id: '3',
     title: 'Gustavo Pan Machado',
-    subtitle: 'RA: ',
-    image: 'link da imagem',
+    subtitle: 'RA: 1136850',
+    image: require('../assets/Gustavo.png'),
   },
   {
     id: '4',
     title: 'Daniel Borges',
     subtitle: 'RA: 1135956',
-    image: 'link da imagem',
+    image: require('../assets/Daniel.png'),
   },
 ];
 
@@ -35,7 +35,7 @@ const Developers = () => {
     <View style={styles.card}>
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.subtitle}>{item.subtitle}</Text>
-      <Image source={{ uri: item.image }} style={styles.image} resizeMode="cover" />
+      <Image source={item.image} style={styles.image} resizeMode="stretch" />
     </View>
   );
 
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: width * 0.9,
-    height: 250,
+    height: 500,
     borderRadius: 10,
     marginTop: 15,
   },
@@ -84,6 +84,5 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 });
-
 
 export default Developers;

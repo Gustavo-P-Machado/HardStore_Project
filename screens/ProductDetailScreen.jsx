@@ -7,8 +7,12 @@ import ProductImage from '../components/ProductImage';
 import ProductInfo from '../components/ProductInfo';
 // import StickyFooterButton from '../components/stickyFooterButton';
 import StickyFooterButton from '../components/StickyFooterButton'
+import { useRoute } from '@react-navigation/native';
 
 const ProductDetailScreen = () => {
+  const route = useRoute();
+  const { productId } = route.params;
+
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,7 +20,7 @@ const ProductDetailScreen = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch('https://fakestoreapi.com/products/14'); //TODO - Depois tem que fazer isso de forma dinâmica
+        const response = await fetch('https://fakestoreapi.com/products/' + productId); //TODO - Depois tem que fazer isso de forma dinâmica
         const data = await response.json();
         setProduct(data);
       } catch (err) {

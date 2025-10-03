@@ -41,12 +41,16 @@ export default function HomeScreen() {
     setSelectedCategory('');
   };
 
+    const handleProductPress = (productId) => {
+    navigation.navigate('ProductDetail', { productId });
+  };
+
   const renderProduct = ({ item }) => (
-    <View style={styles.productContainer}>
+    <TouchableOpacity onPress={() => handleProductPress(item.id)} style={styles.productContainer}>
       <Image source={{ uri: item.image }} style={styles.productImage} />
       <Text style={styles.productTitle}>{item.title}</Text>
       <Text style={styles.productPrice}>{formatCurrency(item.price)}</Text>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
