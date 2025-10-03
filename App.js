@@ -11,6 +11,9 @@ import ProductDetailScreen from './screens/ProductDetailScreen';
 import HomeScreen from './screens/HomeScreen';
 import Developers from './screens/Developers';
 
+import LogoutButton from './components/LogoutButton';
+import InfoButton from './components/InfoButton';
+
 const Stack = createStackNavigator();
 
 export default function App() {
